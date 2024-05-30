@@ -32,6 +32,7 @@ You can test the GraphQL API using Postman or any other API client. After starti
 - Express server setup
 - Apollo Server integration
 
+### Summary for 5/29/2024
 Create your schemas in the schemas folder, 
 They then feed into the aggregated schema.js. 
 Which is then used with apollo.js which creates a server.
