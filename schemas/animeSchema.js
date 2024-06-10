@@ -1,20 +1,22 @@
 const { gql } = require('apollo-server-express');
+const animeService = require('../services/animeService');
 
 const animeTypeDef = gql`
     type Anime {
         id: ID!
+        title: String!
         episodes: Int
         onGoing: Boolean!
     }
 
     type Query {
-        anime: String
+        anime: [Anime]
     }
 `
 
 const animeResolver = {
     Query: {
-        anime : () => 'This is an anime'
+        anime : async () => animeService.getAnimeList()
     }
 }
 
