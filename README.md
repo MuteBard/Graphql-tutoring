@@ -39,3 +39,6 @@ Which is then used with apollo.js which creates a server.
 The server is then used within src.js to launch your express server as a graphql app.
 
 Next we will create more useful TypeDefs and Resolvers
+
+### Summary for 9/8/2024
+Able to use both Queries and Mutations (no db, not able to save)
