@@ -23,8 +23,14 @@ async function getAnimeList() {
     return animeList;
 }
 
+async function createAnime(input) {
+    input.id = '999';
+    return input;
+}
+
 module.exports = {
-    getAnimeList
+    getAnimeList,
+    createAnime
 }
 
 

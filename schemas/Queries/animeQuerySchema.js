@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server-express');
-const animeService = require('../services/animeService');
+const animeService = require('../../services/animeService');
 
-const animeTypeDef = gql`
+const animeQueryTypeDef = gql`
     type Anime {
         id: ID!
         title: String!
@@ -14,13 +14,13 @@ const animeTypeDef = gql`
     }
 `
 
-const animeResolver = {
+const animeQueryResolver = {
     Query: {
         anime : async () => animeService.getAnimeList()
     }
 }
 
 module.exports = {
-    animeTypeDef,
-    animeResolver
+    animeQueryTypeDef,
+    animeQueryResolver
 }

@@ -1,4 +1,4 @@
-function getMangaList() {
+async function getMangaList() {
     const mangaList = [{
         id: 0,
         title: "Black Clover",
@@ -9,7 +9,13 @@ function getMangaList() {
     return mangaList;
 }
 
+async function createManga(input) {
+    input.id = '999';
+    return input;
+}
+
 module.exports = {
-    getMangaList
+    getMangaList,
+    createManga
 }
 

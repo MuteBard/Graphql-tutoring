@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server-express');
-const mangaService = require('../services/mangaService');
+const mangaService = require('../../services/mangaService');
 
-const mangaTypeDef = gql`
+const mangaQueryTypeDef = gql`
     type Manga {
         id: ID!
         author: String!
@@ -14,13 +14,13 @@ const mangaTypeDef = gql`
     }
 `
 
-const mangaResolver = {
+const mangaQueryResolver = {
     Query: {
         manga : async () => mangaService.getMangaList()
     }
 }
 
 module.exports = {
-    mangaTypeDef,
-    mangaResolver
+    mangaQueryTypeDef,
+    mangaQueryResolver
 }
