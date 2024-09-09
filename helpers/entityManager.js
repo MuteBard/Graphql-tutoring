@@ -46,12 +46,12 @@ function filterCriteria(filter) {
 }
 
 async function insertOne(collection, _data){
-    //get Database
-    const db = await getDatabase();
-
     //create a contentId
     const contentId = uuidv4();
     const data = { ..._data, contentId };
+
+    //get Database
+    const db = await getDatabase();
 
     //get collection and insert data
     const table = db.collection(collection);
@@ -59,6 +59,58 @@ async function insertOne(collection, _data){
 
     //get inserted data
     const response = await table.findOne({contentId});
+    return response;
+}
+
+async function updateOne(collection, _data){
+
+
+    //get contentId and the rest of the data
+    const { contentId, ...rest } = _data;
+
+    // Define the filter based on the contentId
+    const filter = { contentId };
+    const updateData = rest;
+
+    // Define the update operation
+    const updateOperation = {
+        $set: updateData // Update data object containing fields to update
+    };
+
+    //get Database
+    const db = await getDatabase();
+
+    //get collection
+    const table = db.collection(collection);
+
+    // Perform the update operation using updateOne
+    await table.updateOne(filter, updateOperation);
+    
+    //get inserted data
+    const response = await table.findOne({contentId});
+
+    return response;
+}
+
+async function deleteOne(collection, _data){
+    //get Database
+    const db = await getDatabase();
+
+    //get contentId and the rest of the data
+    const { contentId } = _data;
+
+    // Define the filter based on the contentId
+    const filter = { contentId };
+
+   
+
+    //get collection
+    const table = db.collection(collection);
+    //get data before deleted
+    const response = await table.findOne({contentId});
+    // Perform the update operation using updateOne
+    await table.deleteOne(filter);
+
     return response;
 }
 
@@ -105,6 +157,8 @@ async function getDatabase() {
 
 module.exports = {
     insertOne,
+    updateOne,
+    deleteOne,
     findOne,
     findMany
 }
