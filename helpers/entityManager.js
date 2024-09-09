@@ -1,5 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
-const { mongoDBClient, mongodb } = require('../client/mongodbClient');
+const { mongoDBClient } = require('../client/mongodbClient');
+const settings = require('../settings');
 
 function filterCriteria(filter) {
     if (!filter) return {};
@@ -68,7 +69,7 @@ async function updateOne(collection, _data){
     //get contentId and the rest of the data
     const { contentId, ...rest } = _data;
 
-    // Define the filter based on the contentId
+    //set the filter based on the contentId
     const filter = { contentId };
     const updateData = rest;
 
@@ -99,10 +100,8 @@ async function deleteOne(collection, _data){
     //get contentId and the rest of the data
     const { contentId } = _data;
 
-    // Define the filter based on the contentId
+    //set the filter based on the contentId
     const filter = { contentId };
-
-   
 
     //get collection
     const table = db.collection(collection);
@@ -150,8 +149,9 @@ function searchOptions() {
 
 
 async function getDatabase() {
+    const databaseName = settings.mongodb.database;
     await mongoDBClient.connect();
-    return mongoDBClient.db("Logistics");
+    return mongoDBClient.db(databaseName);
 }
 
 

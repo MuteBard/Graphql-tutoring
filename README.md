@@ -12,12 +12,38 @@ First, install the necessary dependencies:
 npm install
 ```
 
+### Set up env files
+Create the following two files:
+- local.env
+- dev.env
+
+Populate the contents structured as you see in example-dev.env within local.env and dev.env with real information:
+
+MONGO_DB_PASS=fakePassword
+MONGO_DB_USERNAME=fakePerson
+MONGO_DB_DATABASE=fakeDatabase
+MONGO_DB_HOSTNAME=fakedatabase.abcdefg.mongodb.net
+MONGO_DB_OPTIONS=retryWrites=true&w=majority&appName=fakedatabase
+
+Create an account and create a database here to build your own credentials:
+https://account.mongodb.com/account/login
+
+Find your uri:
+https://www.mongodb.com/docs/guides/atlas/connection-string/
+
+create your password under the Database Access sidebar:
+![Alt text](findpw.png)
+
 ### Running
 
 Run the application with the following
 
 ```bash
-npm start
+npm run local
+```
+or 
+```bash
+npm run dev
 ```
 
 ### Testing the API
@@ -29,8 +55,11 @@ You can test the GraphQL API using Postman or any other API client. After starti
 ### Features
 
 - Modularized schema and resolvers
+- Create, Read, Update, Delete functionality
+- Detailed Searching by value
 - Express server setup
 - Apollo Server integration
+- MongoDB integration
 
 ### Summary for 5/29/2024
 Create your schemas in the schemas folder, 

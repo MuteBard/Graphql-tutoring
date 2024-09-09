@@ -1,7 +1,8 @@
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const { mongodb } = require('../settings');
-const uri = `mongodb+srv://MutinyBard:${mongodb.password}@logistics.hlzayzi.mongodb.net/?retryWrites=true&w=majority&appName=Logistics`;
+const settings = require('../settings');
+const { username, password, hostName, options } = settings.mongodb;
+const uri = `mongodb+srv://${username}:${password}@${hostName}/?${options}`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -27,6 +28,5 @@ async function run() {
 run().catch(console.dir);
 
 module.exports = {
-    mongoDBClient: client,
-    mongodb
+    mongoDBClient: client
 }
