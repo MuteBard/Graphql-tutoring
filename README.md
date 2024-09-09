@@ -44,5 +44,5 @@ Next we will create more useful TypeDefs and Resolvers
 Able to use both Queries and Mutations (no db, not able to save)
 
 ### Summary for 9/9/2024
-Able to effictively search per field, has update and delete mutations
+Able to effictively search per field, can create, update and delete mutations (has db, can save)
 
