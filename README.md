@@ -31,7 +31,7 @@ https://account.mongodb.com/account/login
 Find your uri:
 https://www.mongodb.com/docs/guides/atlas/connection-string/
 
-Create your password under the Database Access sidebar and click edit:
+Create your password by clicking the Database Access sidebar then click edit:
 ![Alt text](findpw.png)
 
 ### Running
