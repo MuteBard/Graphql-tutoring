@@ -24,7 +24,7 @@ npm start
 
 You can test the GraphQL API using Postman or any other API client. After starting the server, you should be able to access the GraphQL Playground at the specified URL.
 
-![Alt text](operational.png)
+![Alt text](example.png)
 
 ### Features
 
