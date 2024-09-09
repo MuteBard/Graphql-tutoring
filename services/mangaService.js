@@ -1,21 +1,12 @@
-async function getMangaList() {
-    const mangaList = [{
-        id: 0,
-        title: "Black Clover",
-        author: "Yūki Tabata",
-        chapters: 372
-    }];
+const { insertOne, findOne, findMany } = require('../helpers/entityManager');
 
-    return mangaList;
-}
-
-async function createManga(input) {
-    input.id = '999';
-    return input;
-}
+const getManga = async (contentId) => findOne('Manga', contentId);
+const searchManga = async (filter) => findMany('Manga', filter);
+const createManga = async (input) => insertOne('Manga', input);
 
 module.exports = {
-    getMangaList,
+    getManga,
+    searchManga,
     createManga
 }
 

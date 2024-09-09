@@ -5,7 +5,8 @@
   "main": "src.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src.js"
+    "local": "clear && nodemon -r ./env/initializeEnvs.js src.js local",
+    "dev": "clear && nodemon -r ./env/initializeEnvs.js src.js dev"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "apollo-server-express": "^3.13.0",
     "express": "^4.19.2",
     "graphql": "^16.8.1",
-    "graphql-tools": "^9.0.1"
+    "graphql-tools": "^9.0.1",
+    "mongodb": "^6.8.1"
   }
 }

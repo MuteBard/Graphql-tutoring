@@ -8,18 +8,13 @@ const animeMutationTypeDef = gql`
 
     input CreateAnimeInput {
         title: String!
-        onGoing: Boolean!
+        onGoing: Boolean
+        episodes: Int
+
     }
 
     type CreateAnimePayload {
         anime : Anime
-    }
-
-    type Anime {
-        id: ID!
-        title: String!
-        episodes: Int
-        onGoing: Boolean!
     }
 `
 
